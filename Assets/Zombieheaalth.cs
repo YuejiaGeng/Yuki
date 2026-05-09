@@ -1,32 +1,63 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ZombieHealth : MonoBehaviour
 {
     public int maxHp = 3;
     public int hp = 3;
 
-    public Transform lastAttacker; // ← 新增
+    public Transform lastAttacker;
 
-    private HPBarUI hpBar;
+    public RectTransform hpFill;
+    public float fullWidth = 96f;
 
-    void Awake()
+    private void Start()
     {
-        // 在子物体中自动查找血条（Canvas 上挂着 HPBarUI）
-        hpBar = GetComponentInChildren<HPBarUI>();
+        hp = maxHp;
+        UpdateHPBar();
     }
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("丧尸被打到了，伤害: " + damage);
+
         hp -= damage;
 
-        if (hpBar != null)
-            hpBar.TakeHit();
+        if (hp < 0)
+            hp = 0;
 
-        lastAttacker = GameObject.FindGameObjectWithTag("Player").transform;
+        UpdateHPBar();
 
-        GetComponent<ZombieChase>()?.StartChase(lastAttacker); // ✅ 加这一行
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            lastAttacker = playerObj.transform;
+
+            if (GameSettings.Instance != null &&
+                GameSettings.Instance.currentDifficulty == GameSettings.Difficulty.Hard)
+            {
+                GetComponent<ZombieCounterAttack>()?.CounterAttack(lastAttacker);
+            }
+        }
 
         if (hp <= 0)
+        {
             Destroy(gameObject);
+        }
+    }
+
+    void UpdateHPBar()
+    {
+        if (hpFill != null)
+        {
+            float percent = (float)hp / maxHp;
+            hpFill.sizeDelta = new Vector2(fullWidth * percent, hpFill.sizeDelta.y);
+
+            Debug.Log("丧尸当前血量: " + hp + " / " + maxHp);
+        }
+        else
+        {
+            Debug.LogWarning("HP_Fill 没有拖到 ZombieHealth 的 Hp Fill 上！");
+        }
     }
 }

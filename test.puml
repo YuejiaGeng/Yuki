@@ -1,0 +1,7 @@
+@startuml
+
+class Player
+class Zombie
+Player --> Zombie : attack
+
+@enduml

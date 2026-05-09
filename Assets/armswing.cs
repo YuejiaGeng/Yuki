@@ -8,22 +8,42 @@ public class ArmSwing : MonoBehaviour
     public float cooldown = 0.25f;
 
     public AttackHitbox hitbox;
+    public WeaponSwitcher weaponSwitcher;
 
     private bool swinging = false;
     private float t = 0f;
     private float lastTime = -999f;
+
+    void Start()
+    {
+        if (weaponSwitcher == null)
+        {
+            weaponSwitcher = GetComponent<WeaponSwitcher>();
+        }
+    }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             if (Time.time - lastTime < cooldown) return;
+
             lastTime = Time.time;
 
             swinging = true;
             t = 0f;
 
-            if (hitbox != null) hitbox.DoHitOnce();
+            // 弩模式下：只做动作，不造成近战伤害
+            if (weaponSwitcher != null && weaponSwitcher.usingCrossbow)
+            {
+                return;
+            }
+
+            // 近战模式下：才真正打丧尸
+            if (hitbox != null)
+            {
+                hitbox.DoHitOnce();
+            }
         }
     }
 

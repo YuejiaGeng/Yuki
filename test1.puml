@@ -1,0 +1,6 @@
+@startuml
+class Player
+class Enemy
+
+Player --> Enemy : attack
+@enduml
