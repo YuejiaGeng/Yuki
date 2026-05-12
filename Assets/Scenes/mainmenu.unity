@@ -3181,44 +3181,44 @@ MonoBehaviour:
   m_text: 'In an isolated forest cut off from the outside world, a sudden crisis
     has shattered the peace of the campsite.
 
-    
 
-    Zombies have taken over
-    the forest area, and survivors are trapped in different tents and camps, waiting
-    to be rescued. The player takes on the role of Ryan, a rescue agent who enters
-    this dangerous forest to find the survivors and bring them safely back to the
-    safe house.
 
-    
+    Zombies have taken over the forest
+    area, and survivors are trapped in different tents and camps, waiting to be rescued.
+    The player takes on the role of Ryan, a rescue agent who enters this dangerous
+    forest to find the survivors and bring them safely back to the safe house.
 
-    This is not a mission that can be completed through
-    combat alone. Zombies wander throughout the forest and will chase the player
-    once they are detected. The player must not only clear the threats, but also
-    decide when to fight, when to move, and when to protect the survivors.
 
-    
 
-    Your
-    mission is to:
+    This
+    is not a mission that can be completed through combat alone. Zombies wander throughout
+    the forest and will chase the player once they are detected. The player must
+    not only clear the threats, but also decide when to fight, when to move, and
+    when to protect the survivors.
 
-    
 
-    Explore the forest.
+
+    Your mission is to:
+
+
+
+    Explore the
+    forest.
 
     Defeat the zombies.
 
-    Rescue
-    the survivors.
+    Rescue the survivors.
 
-    Return to the safe house.
+    Return to the
+    safe house.
 
-    Complete the evacuation
-    mission.
+    Complete the evacuation mission.
 
-    
 
-    In this forest, the true goal is not only to eliminate
-    the enemies, but also to make sure every survivor is rescued.'
+
+    In this forest, the
+    true goal is not only to eliminate the enemies, but also to make sure every survivor
+    is rescued.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3486,7 +3486,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Complexity
+  m_text: Complexity:Easy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
